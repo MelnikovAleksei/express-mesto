@@ -3,6 +3,7 @@ const path = require('path');
 
 const cardsRoutes = require('./routes/cards');
 const usersRoutes = require('./routes/users');
+const notFountRouter = require('./routes/notFound');
 
 const { PORT = 3000 } = process.env;
 
@@ -14,9 +15,7 @@ app.use('/', cardsRoutes);
 
 app.use('/', usersRoutes);
 
-app.all('*', (req, res) => {
-  res.status(404).send({ message: 'Запрашиваемый ресурс не найден' });
-});
+app.all('*', notFountRouter);
 
 app.listen(PORT, () => {
   console.log(`App listening on port ${PORT}`);
