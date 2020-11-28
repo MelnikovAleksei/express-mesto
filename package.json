@@ -7,10 +7,6 @@
     "start": "PORT=3000 node app.js",
     "dev": "nodemon index.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/MelnikovAleksei/express-mesto.git"
-  },
   "author": "Melnikov Aleksei",
   "license": "ISC",
   "bugs": {
