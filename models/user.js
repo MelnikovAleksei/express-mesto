@@ -18,9 +18,10 @@ const userSchema = new mongoose.Schema({
     required: true,
     validate: {
       validator(v) {
-        return !/([--:\w?@%&+~#=]*\.[a-z]{2,4}\/{0,2})((?:[?&](?:\w+)=(?:\w+))+|[--:\w?\[\]!$'()\*,;@%&+~#=]+)?/g.test(v); //regexr.com/3ajfi + [] ! $ ' ( ) *,;
-      }
-    }
+        return /(https?:\/\/)?([\w\-])+\.{1}([a-zA-Z]{2,63})([\/\w-]*)*\/?\??([^#\n\r]*)?#?([^\n\r]*)/.test(v);
+      },
+      message: 'Ошибка валидации url адреса',
+    },
   }
 })
 
