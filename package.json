@@ -4,7 +4,7 @@
   "description": "Server for educational project work \"Place\" in Yandex.Practikum",
   "main": "app.js",
   "scripts": {
-    "start": "PORT=3000 node app.js",
+    "start": "node app.js",
     "dev": "nodemon app.js",
     "lint": "eslint --ignore-path .eslintignore ."
   },
