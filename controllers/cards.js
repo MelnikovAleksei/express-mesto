@@ -1,26 +1,54 @@
-const path = require('path');
+const Card = require('../models/card');
 
-const cardsDataFilePath = path.join(__dirname, '../data/cards.json');
-
-const getJson = require('../helpers/readJson');
-
-const getCards = async (req, res) => {
-  try {
-    const data = await getJson(cardsDataFilePath);
-
-    if (!data) {
-      res.status(404).send({ message: 'Карточки не найдены' });
-      return;
-    }
-
-    res.status(200).send(data);
-  } catch (err) {
-    if (err.code === 'ENOENT') {
-      res.status(404).send({ message: 'Запрашиваемый ресурс не найден' });
-      return;
-    }
-    res.status(500).send({ message: 'Внутренняя ошибка сервера' });
-  }
+const getCards = (req, res) => {
+  Card.find({})
+    .then((cards) => {
+      if (!cards) {
+        res.status(404).send({ message: "Нет карточек" });
+      }
+      res.status(200).send(cards);
+    })
+    .catch((err) => {
+      res.status(500).send({ message: `Внутренняя ошибка сервера: ${err}` });
+    })
 };
 
-module.exports = getCards;
+const createCard = (req, res) => {
+  const { name, link } = req.body;
+  const owner = req.user._id;
+  Card.create({ name, link, owner })
+    .then((card) => {
+      res.status(200).send(card);
+    })
+    .catch((err) => {
+      if (err.name === 'ValidationError') {
+        res.status(400).send({ message: `Ошибка при валидации: ${err}` });
+        return;
+      }
+      res.status(500).send({ message: `Внутренняя ошибка сервера: ${err}` });
+    })
+}
+
+const deleteCard = (req, res) => {
+  const id = req.params.cardId;
+  Card.findByIdAndRemove(id)
+    .then((card) => {
+      if (!card) {
+        res.status(404).send({ message: "Нет карточки с таким id" });
+      }
+      res.status(200).send(card);
+    })
+    .catch((err) => {
+      if (err.name === 'CastError') {
+        res.status(400).send({ message: `Передан некорректный id: ${err}` });
+        return;
+      }
+      res.status(500).send({ message: `Внутренняя ошибка сервера: ${err}` });
+    })
+}
+
+module.exports = {
+  getCards,
+  createCard,
+  deleteCard
+}
