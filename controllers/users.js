@@ -3,8 +3,9 @@ const User = require('../models/user');
 const getUsers = (req, res) => {
   User.find({})
     .then((users) => {
-      if (!users) {
+      if (users.length === 0) {
         res.status(404).send({ message: "Пользователи не найдены" });
+        return;
       }
       res.status(200).send(users);
     })
@@ -18,6 +19,7 @@ const getUserById = (req, res) => {
     .then((user) => {
       if (!user) {
         res.status(404).send({ message: `Нет пользователя с таким id` });
+        return;
       }
       res.status(200).send(user);
     })
