@@ -1,14 +1,72 @@
-# Проект Mesto фронтенд + бэкенд
+# Проектная работа REST API для проекта ["Mesto"](https://github.com/MelnikovAleksei/mesto-react)
 
-## Директории
+## Создана в рамках учебы в [Яндекс.Практикум](https://praktikum.yandex.ru/) на курсе ["Веб-разработчик"](https://praktikum.yandex.ru/web/).
 
-`/public` — статика, полученная в результате билда фронтенд-приложения на Реакте  
-`/data` — JSON-файлы для временной эмуляции работы с базой данных  
-`/routes` — папка с файлами роутера  
-  
-Остальные директории вспомогательные, создаются при необходимости разработчиком
+## Описание:
 
-## Запуск проекта
+REST API для проектной работы ["Mesto"](https://github.com/MelnikovAleksei/mesto-react), связанное с базой данных MongoDB. При запуске приложения оно подключается к серверу mongo по адресу: 
+`
+mongodb://localhost:27017/mestodb
+`
+В приложении описана схема пользователя и схема карточки. Некоторые поля схем проверяются регулярным выражением. 
 
-`npm run start` — запускает сервер   
-`npm run dev` — запускает сервер с hot-reload
+"Mesto" - это интерактивная страница, где пользователи могут делиться фотографиями. Она создана в рамках прохождения 4-11 спринтов курса. Данная работа переведена на фреймворк React. Ссылка на [репозиторий с версией проектной работы на Pure JS](https://github.com/MelnikovAleksei/mesto).
+
+[Проектная работа "Mesto" на GitHub Pages](https://melnikovaleksei.github.io/mesto-react/index.html) 
+
+## Функционал:
+
+### Роуты для пользователей: 
+
+* GET /users - возвращает всех пользователей; 
+* GET /users/:userId - возвращает пользователя по переданному _id; 
+* POST /users - создает пользователя с переданными в теле запроса name, about и avatar;
+
+### Роуты для карточек:
+
+* GET /cards - возвращает все карточки из базы данных; 
+* POST /cards - создаёт карточку с переданными в теле запроса name и link. *owner проставляется посредством временного мидлвэра (добавляет в каждый запрос объект user)*; 
+* DELETE /cards/:cardId - удаляет карточку по переданному _id; 
+
+## Технологии:
+
+* expressjs
+* API REST 
+* MongoDB 
+* RegExp 
+
+## Инструкция по установке:
+
+Клонировать репозиторий:
+
+`
+git clone https://github.com/MelnikovAleksei/express-mesto.git
+`
+
+В директории проекта запустить приложение в режиме разработки:
+
+`npm install` - устанавливает зависимости 
+`npm run dev` - запускает сервер 
+`npm run start` - запускает сервер с hot-reload
+
+## Будущая доработка проекта будет включать в себя:
+
+* создание сервера на Nodejs
+
+## Языки:
+
+* JavaScript
+* RegExp 
+
+## Библиотеки:
+
+* expressjs
+
+## База данных: 
+
+* MongoDB (сопоставитель Mongoose)
+
+## Чеклисты проектной работы:
+
+* [Чеклист 1](https://code.s3.yandex.net/web-developer/checklists/new-program/checklist-12/index.html) 
+* [Чеклист 2](https://code.s3.yandex.net/web-developer/checklists/new-program/checklist-13/index.html) 
