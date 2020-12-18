@@ -36,6 +36,7 @@ const deleteCard = (req, res) => {
     .then((card) => {
       if (!card) {
         res.status(404).send({ message: "Нет карточки с таким id" });
+        return;
       }
       res.status(200).send(card);
     })
