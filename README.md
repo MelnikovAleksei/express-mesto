@@ -4,15 +4,15 @@
 
 ## Описание:
 
-REST API для проектной работы ["Mesto"](https://github.com/MelnikovAleksei/mesto-react), связанное с базой данных MongoDB. При запуске приложения оно подключается к серверу mongo по адресу: 
-`
-mongodb://localhost:27017/mestodb
-`
+REST API для проектной работы ["Mesto"](https://github.com/MelnikovAleksei/mesto-react), связанное с базой данных MongoDB. При запуске приложения оно подключается к серверу mongo по адресу: `mongodb://localhost:27017/mestodb`.
 В приложении описана схема пользователя и схема карточки. Некоторые поля схем проверяются регулярным выражением. 
 
-"Mesto" - это интерактивная страница, где пользователи могут делиться фотографиями. Она создана в рамках прохождения 4-11 спринтов курса. Данная работа переведена на фреймворк React. Ссылка на [репозиторий с версией проектной работы на Pure JS](https://github.com/MelnikovAleksei/mesto).
+"Mesto" - это интерактивная страница, где пользователи могут делиться фотографиями. Она создана в рамках прохождения 4-11 спринтов курса. Данная работа переведена на фреймворк React. 
 
-[Проектная работа "Mesto" на GitHub Pages](https://melnikovaleksei.github.io/mesto-react/index.html) 
+* Ссылка на [репозиторий с версией проектной работы на Pure JS](https://github.com/MelnikovAleksei/mesto); 
+* Ссылка на [репозиторий с версией проектной работы на Reactjs](https://github.com/MelnikovAleksei/mesto-react); 
+
+[Проектная работа "Mesto-Reactjs" на GitHub Pages](https://melnikovaleksei.github.io/mesto-react/index.html) 
 
 ## Функционал:
 
@@ -39,15 +39,13 @@ mongodb://localhost:27017/mestodb
 
 Клонировать репозиторий:
 
-`
-git clone https://github.com/MelnikovAleksei/express-mesto.git
-`
+* `git clone https://github.com/MelnikovAleksei/express-mesto.git`
 
 В директории проекта запустить приложение в режиме разработки:
 
-`npm install` - устанавливает зависимости 
-`npm run dev` - запускает сервер 
-`npm run start` - запускает сервер с hot-reload
+* `npm install` - устанавливает зависимости; 
+* `npm run dev` - запускает сервер; 
+* `npm run start` - запускает сервер с hot-reload;
 
 ## Будущая доработка проекта будет включать в себя:
 
